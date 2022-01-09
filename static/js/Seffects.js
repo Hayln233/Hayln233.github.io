@@ -2,7 +2,7 @@
                 init: function () {
                     S.Drawing.init('.canvas');
                     document.body.classList.add('body--ready');
-                    S.UI.simulate("|陈|六|一|快|乐|#countdown 3");				
+                    S.UI.simulate("|千|雪|新年|快|乐|#countdown 3");				
                     S.Drawing.loop(function () {
                         S.Shape.render();
 						
