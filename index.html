@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asgard 专业雨鞋品牌</title>
+    <title>Asgard - Premium Rain Boots</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -666,7 +666,7 @@
             <div class="container top-bar-content">
                 <div class="free-shipping">
                     <i class="fas fa-shipping-fast"></i>
-                    <span>全球免邮 | 30天无忧退货</span>
+                    <span id="shipping-text">Free Worldwide Shipping | 30-Day Hassle-Free Returns</span>
                 </div>
                 <div>
                     <select class="currency-selector">
@@ -675,10 +675,9 @@
                         <option>GBP £</option>
                         <option>CNY ¥</option>
                     </select>
-                    <select class="language-selector">
-                        <option>English</option>
-                        <option>中文</option>
-                        <option>Español</option>
+                    <select id="languageSelector" class="language-selector">
+                        <option value="en" selected>English</option>
+                        <option value="zh">中文</option>
                     </select>
                 </div>
             </div>
@@ -692,12 +691,12 @@
                 </a>
 
                 <ul class="nav-links">
-                    <li><a href="#">首页</a></li>
-                    <li><a href="#">男士雨鞋</a></li>
-                    <li><a href="#">女士雨鞋</a></li>
-                    <li><a href="#">儿童雨鞋</a></li>
-                    <li><a href="#">防水配件</a></li>
-                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#" data-i18n="nav.men">Men's Rain Boots</a></li>
+                    <li><a href="#" data-i18n="nav.women">Women's Rain Boots</a></li>
+                    <li><a href="#" data-i18n="nav.kids">Kids' Rain Boots</a></li>
+                    <li><a href="#" data-i18n="nav.accessories">Waterproof Accessories</a></li>
+                    <li><a href="#" data-i18n="nav.about">About Us</a></li>
                 </ul>
 
                 <div class="nav-icons">
@@ -725,53 +724,53 @@
         <div class="container product-container">
             <div class="product-gallery">
                 <div class="main-image-container">
-                    <img id="mainImage1" src="https://m.media-amazon.com/images/I/61CnuFH4SlL._AC_SY695_.jpg" class="main-image active" alt="黑色雨鞋">
-                    <img id="mainImage2" src="https://m.media-amazon.com/images/I/61q3HN9O6SL._AC_SY695_.jpg" class="main-image" alt="红色雨鞋">
-                    <img id="mainImage3" src="https://m.media-amazon.com/images/I/71DpAGL5AJL._AC_SY695_.jpg" class="main-image" alt="绿色雨鞋">
-                    <img id="mainImage4" src="https://m.media-amazon.com/images/I/61oz80pA8mL._AC_SY695_.jpg" class="main-image" alt="黄色雨鞋">
+                    <img id="mainImage1" src="https://m.media-amazon.com/images/I/61CnuFH4SlL._AC_SY695_.jpg" class="main-image active" alt="Black Rain Boots">
+                    <img id="mainImage2" src="https://m.media-amazon.com/images/I/61q3HN9O6SL._AC_SY695_.jpg" class="main-image" alt="Red Rain Boots">
+                    <img id="mainImage3" src="https://m.media-amazon.com/images/I/71DpAGL5AJL._AC_SY695_.jpg" class="main-image" alt="Green Rain Boots">
+                    <img id="mainImage4" src="https://m.media-amazon.com/images/I/61oz80pA8mL._AC_SY695_.jpg" class="main-image" alt="Yellow Rain Boots">
                 </div>
 
                 <div class="thumbnail-container">
-                    <img src="https://m.media-amazon.com/images/I/31j8Pr-NRmL._SS64_.jpg" class="thumbnail active" onclick="changeImage(1)" alt="黑色雨鞋缩略图">
-                    <img src="https://m.media-amazon.com/images/I/31m2SF5khHL._SS64_.jpg" class="thumbnail" onclick="changeImage(2)" alt="红色雨鞋缩略图">
-                    <img src="https://m.media-amazon.com/images/I/31cicTXSYTL._SS64_.jpg" class="thumbnail" onclick="changeImage(3)" alt="绿色雨鞋缩略图">
-                    <img src="https://m.media-amazon.com/images/I/41DCT-IKVkL._SS64_.jpg" class="thumbnail" onclick="changeImage(4)" alt="黄色雨鞋缩略图">
+                    <img src="https://m.media-amazon.com/images/I/31j8Pr-NRmL._SS64_.jpg" class="thumbnail active" onclick="changeImage(1)" alt="Black Rain Boots Thumbnail">
+                    <img src="https://m.media-amazon.com/images/I/31m2SF5khHL._SS64_.jpg" class="thumbnail" onclick="changeImage(2)" alt="Red Rain Boots Thumbnail">
+                    <img src="https://m.media-amazon.com/images/I/31cicTXSYTL._SS64_.jpg" class="thumbnail" onclick="changeImage(3)" alt="Green Rain Boots Thumbnail">
+                    <img src="https://m.media-amazon.com/images/I/41DCT-IKVkL._SS64_.jpg" class="thumbnail" onclick="changeImage(4)" alt="Yellow Rain Boots Thumbnail">
                 </div>
             </div>
 
             <div class="product-info">
-                <span class="brand-tag">Asgrd 专业雨鞋</span>
-                <h1 class="product-title">Asgrd雨鞋</h1>
-                <p class="product-subtitle">全天候防水保护 · 舒适耐穿</p>
+                <span class="brand-tag" data-i18n="product.brand">Asgrd Professional Rain Boots</span>
+                <h1 class="product-title" data-i18n="product.title">Asgrd Rain Boots</h1>
+                <p class="product-subtitle" data-i18n="product.subtitle">All-Weather Protection · Comfortable & Durable</p>
 
                 <div class="product-price">
                     <span class="current-price">$30.99</span>
                     <span class="original-price">$39.99</span>
-                    <span class="discount-badge">节省 23%</span>
+                    <span class="discount-badge" data-i18n="product.discount">Save 23%</span>
                 </div>
 
                 <div class="product-options">
-                    <span class="option-title">选择颜色:</span>
+                    <span class="option-title" data-i18n="options.color">Select Color:</span>
                     <div class="color-options">
                         <div class="color-option-container">
-                            <div class="color-option active" style="background-color: #2c3e50;" onclick="selectColor(this, '黑色', 1)"></div>
-                            <span class="color-name">黑色</span>
+                            <div class="color-option active" style="background-color: #2c3e50;" onclick="selectColor(this, 'Black', 1)"></div>
+                            <span class="color-name" data-i18n="color.black">Black</span>
                         </div>
                         <div class="color-option-container">
-                            <div class="color-option" style="background-color: #c0392b;" onclick="selectColor(this, '红色', 2)"></div>
-                            <span class="color-name">红色</span>
+                            <div class="color-option" style="background-color: #c0392b;" onclick="selectColor(this, 'Red', 2)"></div>
+                            <span class="color-name" data-i18n="color.red">Red</span>
                         </div>
                         <div class="color-option-container">
-                            <div class="color-option" style="background-color: #27ae60;" onclick="selectColor(this, '绿色', 3)"></div>
-                            <span class="color-name">绿色</span>
+                            <div class="color-option" style="background-color: #27ae60;" onclick="selectColor(this, 'Green', 3)"></div>
+                            <span class="color-name" data-i18n="color.green">Green</span>
                         </div>
                         <div class="color-option-container">
-                            <div class="color-option" style="background-color: #f1c40f;" onclick="selectColor(this, '黄色', 4)"></div>
-                            <span class="color-name">黄色</span>
+                            <div class="color-option" style="background-color: #f1c40f;" onclick="selectColor(this, 'Yellow', 4)"></div>
+                            <span class="color-name" data-i18n="color.yellow">Yellow</span>
                         </div>
                     </div>
 
-                    <span class="option-title">选择尺码:</span>
+                    <span class="option-title" data-i18n="options.size">Select Size:</span>
                     <div class="size-options">
                         <div class="size-option">36</div>
                         <div class="size-option">37</div>
@@ -785,18 +784,20 @@
                 </div>
 
                 <button class="add-to-cart-btn">
-                    <i class="fas fa-shopping-cart"></i> 加入购物车
+                    <i class="fas fa-shopping-cart"></i>
+                    <span data-i18n="button.addToCart">Add to Cart</span>
                 </button>
 
                 <button class="wishlist-btn">
-                    <i class="far fa-heart"></i> 加入收藏夹
+                    <i class="far fa-heart"></i>
+                    <span data-i18n="button.addToWishlist">Add to Wishlist</span>
                 </button>
 
                 <div class="shipping-info">
                     <i class="fas fa-check-circle" style="color: #27ae60;"></i>
                     <div>
-                        <strong>全球配送</strong>
-                        <p>预计送达时间: 5-12个工作日 · 免运费</p>
+                        <strong data-i18n="shipping.title">Global Shipping</strong>
+                        <p data-i18n="shipping.description">Estimated Delivery: 5-12 business days · Free Shipping</p>
                     </div>
                 </div>
             </div>
@@ -806,38 +807,38 @@
     <!-- 产品特性 -->
     <section class="features-section">
         <div class="container">
-            <h2 class="section-title">ASGARD 产品特性</h2>
+            <h2 class="section-title" data-i18n="features.title">ASGARD PRODUCT FEATURES</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-tint-slash"></i>
                     </div>
-                    <h3 class="feature-title">全面防水</h3>
-                    <p>采用NordicShield™防水技术，360°全方位防水保护，即使在暴雨中也能保持双脚干爽</p>
+                    <h3 class="feature-title" data-i18n="features.waterproof">Complete Waterproof</h3>
+                    <p data-i18n="features.waterproofDesc">NordicShield™ waterproof technology provides 360° protection, keeping feet dry even in heavy rain</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-snowflake"></i>
                     </div>
-                    <h3 class="feature-title">耐寒保暖</h3>
-                    <p>Thermo-Lining™保暖内衬，可在-30℃低温环境下保持温暖舒适，适合冬季使用</p>
+                    <h3 class="feature-title" data-i18n="features.warmth">Cold-Resistant & Warm</h3>
+                    <p data-i18n="features.warmthDesc">Thermo-Lining™ insulation maintains warmth and comfort in temperatures as low as -30°C, perfect for winter</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shoe-prints"></i>
                     </div>
-                    <h3 class="feature-title">防滑耐磨</h3>
-                    <p>专利IceGrip™防滑鞋底，在湿滑路面提供卓越抓地力，经久耐用的橡胶材质</p>
+                    <h3 class="feature-title" data-i18n="features.slipResistant">Slip-Resistant & Durable</h3>
+                    <p data-i18n="features.slipResistantDesc">Patented IceGrip™ anti-slip sole provides excellent traction on wet surfaces, made with durable rubber</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3 class="feature-title">环保材质</h3>
-                    <p>使用可回收环保橡胶，生产过程中减少碳足迹，为地球环境负责</p>
+                    <h3 class="feature-title" data-i18n="features.ecoFriendly">Eco-Friendly Materials</h3>
+                    <p data-i18n="features.ecoFriendlyDesc">Made with recyclable rubber, reducing carbon footprint in production to protect our planet</p>
                 </div>
             </div>
         </div>
@@ -846,54 +847,54 @@
     <!-- 相关产品
     <section class="products-section">
         <div class="container">
-            <h2 class="section-title">热销产品推荐</h2>
+            <h2 class="section-title" data-i18n="products.title">BEST SELLERS</h2>
             <div class="products-grid">
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard女士雨靴" class="product-image">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard Women's Rain Boots" class="product-image">
                     <div class="product-card-content">
-                        <h3 class="product-card-title">Asgard女士时尚雨靴</h3>
+                        <h3 class="product-card-title" data-i18n="products.women">Asgard Women's Rain Boots</h3>
                         <div class="product-card-price">$79.99</div>
-                        <a href="#" class="product-card-btn">查看详情</a>
+                        <a href="#" class="product-card-btn" data-i18n="button.viewDetails">View Details</a>
                     </div>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard儿童雨靴" class="product-image">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard Kids' Rain Boots" class="product-image">
                     <div class="product-card-content">
-                        <h3 class="product-card-title">Asgard儿童卡通雨靴</h3>
+                        <h3 class="product-card-title" data-i18n="products.kids">Asgard Kids' Rain Boots</h3>
                         <div class="product-card-price">$49.99</div>
-                        <a href="#" class="product-card-btn">查看详情</a>
+                        <a href="#" class="product-card-btn" data-i18n="button.viewDetails">View Details</a>
                     </div>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard户外雨靴" class="product-image">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard Outdoor Rain Boots" class="product-image">
                     <div class="product-card-content">
-                        <h3 class="product-card-title">Asgard户外登山雨靴</h3>
+                        <h3 class="product-card-title" data-i18n="products.outdoor">Asgard Outdoor Rain Boots</h3>
                         <div class="product-card-price">$109.99</div>
-                        <a href="#" class="product-card-btn">查看详情</a>
+                        <a href="#" class="product-card-btn" data-i18n="button.viewDetails">View Details</a>
                     </div>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1605812860427-4024433a70fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard防水鞋套" class="product-image">
+                    <img src="https://images.unsplash.com/photo-1605812860427-4024433a70fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard Waterproof Shoe Covers" class="product-image">
                     <div class="product-card-content">
-                        <h3 class="product-card-title">Asgard便携防水鞋套</h3>
+                        <h3 class="product-card-title" data-i18n="products.covers">Asgard Waterproof Shoe Covers</h3>
                         <div class="product-card-price">$29.99</div>
-                        <a href="#" class="product-card-btn">查看详情</a>
+                        <a href="#" class="product-card-btn" data-i18n="button.viewDetails">View Details</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>-->
 
     <!-- 页脚 -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>关于ASGARD</h3>
-                    <p class="about-text">ASGARD致力于为全球消费者提供高品质防水雨具。我们的产品结合北欧设计美学与先进防水技术，让您在任何天气都能保持干爽舒适。</p>
+                    <h3 data-i18n="footer.about">ABOUT ASGARD</h3>
+                    <p class="about-text" data-i18n="footer.aboutDesc">ASGARD is dedicated to providing high-quality waterproof rain gear to global consumers. Our products combine Nordic design aesthetics with advanced waterproof technology to keep you dry and comfortable in any weather.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -903,47 +904,230 @@
                 </div>
 
                 <div class="footer-column">
-                    <h3>产品系列</h3>
+                    <h3 data-i18n="footer.products">PRODUCT SERIES</h3>
                     <ul class="footer-links">
-                        <li><a href="#">男士雨鞋</a></li>
-                        <li><a href="#">女士雨鞋</a></li>
-                        <li><a href="#">儿童雨鞋</a></li>
-                        <li><a href="#">防水配件</a></li>
-                        <li><a href="#">季节限定款</a></li>
+                        <li><a href="#" data-i18n="footer.men">Men's Rain Boots</a></li>
+                        <li><a href="#" data-i18n="footer.women">Women's Rain Boots</a></li>
+                        <li><a href="#" data-i18n="footer.kids">Kids' Rain Boots</a></li>
+                        <li><a href="#" data-i18n="footer.accessories">Waterproof Accessories</a></li>
+                        <li><a href="#" data-i18n="footer.seasonal">Seasonal Limited Editions</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h3>客户服务</h3>
+                    <h3 data-i18n="footer.customerService">CUSTOMER SERVICE</h3>
                     <ul class="footer-links">
-                        <li><a href="#">常见问题</a></li>
-                        <li><a href="#">尺码指南</a></li>
-                        <li><a href="#">配送政策</a></li>
-                        <li><a href="#">退货流程</a></li>
-                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#" data-i18n="footer.faq">FAQs</a></li>
+                        <li><a href="#" data-i18n="footer.sizeGuide">Size Guide</a></li>
+                        <li><a href="#" data-i18n="footer.shippingPolicy">Shipping Policy</a></li>
+                        <li><a href="#" data-i18n="footer.returnPolicy">Return Process</a></li>
+                        <li><a href="#" data-i18n="footer.contact">Contact Support</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h3>商务合作</h3>
+                    <h3 data-i18n="footer.business">BUSINESS COOPERATION</h3>
                     <ul class="footer-links">
-                        <li><a href="#">批发采购</a></li>
-                        <li><a href="#">品牌加盟</a></li>
-                        <li><a href="#">企业定制</a></li>
-                        <li><a href="#">媒体合作</a></li>
-                        <li><a href="#">招聘信息</a></li>
+                        <li><a href="#" data-i18n="footer.wholesale">Wholesale</a></li>
+                        <li><a href="#" data-i18n="footer.franchise">Franchise</a></li>
+                        <li><a href="#" data-i18n="footer.customization">Corporate Customization</a></li>
+                        <li><a href="#" data-i18n="footer.media">Media Cooperation</a></li>
+                        <li><a href="#" data-i18n="footer.careers">Careers</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="copyright">
-                <p>© 2025 ASGARD International. 保留所有权利。 | 隐私政策 | 使用条款 | 网站地图</p>
-                <p style="margin-top: 10px;">全球配送: 支持200+国家和地区 | 客服邮箱: support@asgard-rainwear.com</p>
+                <p data-i18n="footer.copyright">© 2025 ASGARD International. All Rights Reserved. | Privacy Policy | Terms of Use | Sitemap</p>
+                <p style="margin-top: 10px;" data-i18n="footer.shippingInfo">Global Shipping: 200+ countries & regions supported | Support Email: support@asgard-rainwear.com</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // 多语言支持
+        const translations = {
+            en: {
+                // 顶部栏
+                "shipping-text": "Free Worldwide Shipping | 30-Day Hassle-Free Returns",
+
+                // 导航菜单
+                "nav.home": "Home",
+                "nav.men": "Men's Rain Boots",
+                "nav.women": "Women's Rain Boots",
+                "nav.kids": "Kids' Rain Boots",
+                "nav.accessories": "Waterproof Accessories",
+                "nav.about": "About Us",
+
+                // 产品信息
+                "product.brand": "Asgrd Professional Rain Boots",
+                "product.title": "Asgrd Rain Boots",
+                "product.subtitle": "All-Weather Protection · Comfortable & Durable",
+                "product.discount": "Save 23%",
+
+                // 选项
+                "options.color": "Select Color:",
+                "options.size": "Select Size:",
+                "color.black": "Black",
+                "color.red": "Red",
+                "color.green": "Green",
+                "color.yellow": "Yellow",
+
+                // 按钮
+                "button.addToCart": "Add to Cart",
+                "button.addToWishlist": "Add to Wishlist",
+                "button.viewDetails": "View Details",
+
+                // 配送信息
+                "shipping.title": "Global Shipping",
+                "shipping.description": "Estimated Delivery: 5-12 business days · Free Shipping",
+
+                // 产品特性
+                "features.title": "ASGARD PRODUCT FEATURES",
+                "features.waterproof": "Complete Waterproof",
+                "features.waterproofDesc": "NordicShield™ waterproof technology provides 360° protection, keeping feet dry even in heavy rain",
+                "features.warmth": "Cold-Resistant & Warm",
+                "features.warmthDesc": "Thermo-Lining™ insulation maintains warmth and comfort in temperatures as low as -30°C, perfect for winter",
+                "features.slipResistant": "Slip-Resistant & Durable",
+                "features.slipResistantDesc": "Patented IceGrip™ anti-slip sole provides excellent traction on wet surfaces, made with durable rubber",
+                "features.ecoFriendly": "Eco-Friendly Materials",
+                "features.ecoFriendlyDesc": "Made with recyclable rubber, reducing carbon footprint in production to protect our planet",
+
+                // 产品推荐
+                "products.title": "BEST SELLERS",
+                "products.women": "Asgard Women's Rain Boots",
+                "products.kids": "Asgard Kids' Rain Boots",
+                "products.outdoor": "Asgard Outdoor Rain Boots",
+                "products.covers": "Asgard Waterproof Shoe Covers",
+
+                // 页脚
+                "footer.about": "ABOUT ASGARD",
+                "footer.aboutDesc": "ASGARD is dedicated to providing high-quality waterproof rain gear to global consumers. Our products combine Nordic design aesthetics with advanced waterproof technology to keep you dry and comfortable in any weather.",
+                "footer.products": "PRODUCT SERIES",
+                "footer.men": "Men's Rain Boots",
+                "footer.women": "Women's Rain Boots",
+                "footer.kids": "Kids' Rain Boots",
+                "footer.accessories": "Waterproof Accessories",
+                "footer.seasonal": "Seasonal Limited Editions",
+                "footer.customerService": "CUSTOMER SERVICE",
+                "footer.faq": "FAQs",
+                "footer.sizeGuide": "Size Guide",
+                "footer.shippingPolicy": "Shipping Policy",
+                "footer.returnPolicy": "Return Process",
+                "footer.contact": "Contact Support",
+                "footer.business": "BUSINESS COOPERATION",
+                "footer.wholesale": "Wholesale",
+                "footer.franchise": "Franchise",
+                "footer.customization": "Corporate Customization",
+                "footer.media": "Media Cooperation",
+                "footer.careers": "Careers",
+                "footer.copyright": "© 2025 ASGARD International. All Rights Reserved. | Privacy Policy | Terms of Use | Sitemap",
+                "footer.shippingInfo": "Global Shipping: 200+ countries & regions supported | Support Email: support@asgard-rainwear.com"
+            },
+            zh: {
+                // 顶部栏
+                "shipping-text": "全球免邮 | 30天无忧退货",
+
+                // 导航菜单
+                "nav.home": "首页",
+                "nav.men": "男士雨鞋",
+                "nav.women": "女士雨鞋",
+                "nav.kids": "儿童雨鞋",
+                "nav.accessories": "防水配件",
+                "nav.about": "关于我们",
+
+                // 产品信息
+                "product.brand": "Asgrd 专业雨鞋",
+                "product.title": "Asgrd雨鞋",
+                "product.subtitle": "全天候防水保护 · 舒适耐穿",
+                "product.discount": "节省 23%",
+
+                // 选项
+                "options.color": "选择颜色:",
+                "options.size": "选择尺码:",
+                "color.black": "黑色",
+                "color.red": "红色",
+                "color.green": "绿色",
+                "color.yellow": "黄色",
+
+                // 按钮
+                "button.addToCart": "加入购物车",
+                "button.addToWishlist": "加入收藏夹",
+                "button.viewDetails": "查看详情",
+
+                // 配送信息
+                "shipping.title": "全球配送",
+                "shipping.description": "预计送达时间: 5-12个工作日 · 免运费",
+
+                // 产品特性
+                "features.title": "ASGARD 产品特性",
+                "features.waterproof": "全面防水",
+                "features.waterproofDesc": "采用NordicShield™防水技术，360°全方位防水保护，即使在暴雨中也能保持双脚干爽",
+                "features.warmth": "耐寒保暖",
+                "features.warmthDesc": "Thermo-Lining™保暖内衬，可在-30℃低温环境下保持温暖舒适，适合冬季使用",
+                "features.slipResistant": "防滑耐磨",
+                "features.slipResistantDesc": "专利IceGrip™防滑鞋底，在湿滑路面提供卓越抓地力，经久耐用的橡胶材质",
+                "features.ecoFriendly": "环保材质",
+                "features.ecoFriendlyDesc": "使用可回收环保橡胶，生产过程中减少碳足迹，为地球环境负责",
+
+                // 产品推荐
+                "products.title": "热销产品推荐",
+                "products.women": "Asgard女士时尚雨靴",
+                "products.kids": "Asgard儿童卡通雨靴",
+                "products.outdoor": "Asgard户外登山雨靴",
+                "products.covers": "Asgard便携防水鞋套",
+
+                // 页脚
+                "footer.about": "关于ASGARD",
+                "footer.aboutDesc": "ASGARD致力于为全球消费者提供高品质防水雨具。我们的产品结合北欧设计美学与先进防水技术，让您在任何天气都能保持干爽舒适。",
+                "footer.products": "产品系列",
+                "footer.men": "男士雨鞋",
+                "footer.women": "女士雨鞋",
+                "footer.kids": "儿童雨鞋",
+                "footer.accessories": "防水配件",
+                "footer.seasonal": "季节限定款",
+                "footer.customerService": "客户服务",
+                "footer.faq": "常见问题",
+                "footer.sizeGuide": "尺码指南",
+                "footer.shippingPolicy": "配送政策",
+                "footer.returnPolicy": "退货流程",
+                "footer.contact": "联系客服",
+                "footer.business": "商务合作",
+                "footer.wholesale": "批发采购",
+                "footer.franchise": "品牌加盟",
+                "footer.customization": "企业定制",
+                "footer.media": "媒体合作",
+                "footer.careers": "招聘信息",
+                "footer.copyright": "© 2025 ASGARD International. 保留所有权利。 | 隐私政策 | 使用条款 | 网站地图",
+                "footer.shippingInfo": "全球配送: 支持200+国家和地区 | 客服邮箱: support@asgard-rainwear.com"
+            }
+        };
+
+        // 语言切换功能
+        function changeLanguage(lang) {
+            // 更新所有带data-i18n属性的元素
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // 更新语言选择器
+            document.getElementById('languageSelector').value = lang;
+
+            // 保存语言设置
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // 初始化页面语言
+        function initLanguage() {
+            // 尝试从本地存储获取用户偏好的语言
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const defaultLang = savedLang || 'en'; // 默认英文
+            changeLanguage(defaultLang);
+        }
+
         // 产品图片切换功能
         function changeImage(imageIndex) {
             const mainImages = document.querySelectorAll('.main-image');
@@ -972,10 +1156,6 @@
 
             // 切换到对应的图片
             changeImage(imageIndex);
-
-            // 更新产品标题显示颜色名称
-            
-            //document.querySelector('.product-title').textContent = `A雨鞋 - ${colorName}`;
         }
 
         // 尺码选择功能
@@ -995,9 +1175,16 @@
             let count = parseInt(cartCount.textContent);
             cartCount.textContent = count + 1;
 
-            this.innerHTML = '<i class="fas fa-check"></i> 已加入购物车';
+            this.innerHTML = '<i class="fas fa-check"></i> ' +
+                (document.getElementById('languageSelector').value === 'en'
+                    ? 'Added to Cart'
+                    : '已加入购物车');
+
             setTimeout(() => {
-                this.innerHTML = '<i class="fas fa-shopping-cart"></i> 加入购物车';
+                this.innerHTML = '<i class="fas fa-shopping-cart"></i> ' +
+                    (document.getElementById('languageSelector').value === 'en'
+                        ? 'Add to Cart'
+                        : '加入购物车');
             }, 2000);
         });
 
@@ -1013,9 +1200,16 @@
                 let count = parseInt(wishlistCount.textContent);
                 wishlistCount.textContent = count + 1;
 
-                this.innerHTML = '<i class="fas fa-heart" style="color:#ff6b35;"></i> 已收藏';
+                this.innerHTML = '<i class="fas fa-heart" style="color:#ff6b35;"></i> ' +
+                    (document.getElementById('languageSelector').value === 'en'
+                        ? 'Added to Wishlist'
+                        : '已收藏');
+
                 setTimeout(() => {
-                    this.innerHTML = '<i class="fas fa-heart" style="color:#ff6b35;"></i> 加入收藏夹';
+                    this.innerHTML = '<i class="fas fa-heart" style="color:#ff6b35;"></i> ' +
+                        (document.getElementById('languageSelector').value === 'en'
+                            ? 'Add to Wishlist'
+                            : '加入收藏夹');
                 }, 2000);
             } else {
                 icon.classList.replace('fas', 'far');
@@ -1023,8 +1217,21 @@
                 let count = parseInt(wishlistCount.textContent);
                 wishlistCount.textContent = Math.max(0, count - 1);
 
-                this.innerHTML = '<i class="far fa-heart"></i> 加入收藏夹';
+                this.innerHTML = '<i class="far fa-heart"></i> ' +
+                    (document.getElementById('languageSelector').value === 'en'
+                        ? 'Add to Wishlist'
+                        : '加入收藏夹');
             }
+        });
+
+        // 页面加载时初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            initLanguage();
+
+            // 监听语言选择器变化
+            document.getElementById('languageSelector').addEventListener('change', function() {
+                changeLanguage(this.value);
+            });
         });
     </script>
 </body>
