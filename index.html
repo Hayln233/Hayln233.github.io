@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asgard - 北欧专业雨鞋品牌 | 跨境电商</title>
+    <title>Asgard 专业雨鞋品牌</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -68,7 +68,7 @@
         .currency-selector, .language-selector {
             background: rgba(255,255,255,0.2);
             border: none;
-            color: white;
+            color: black;
             padding: 5px 10px;
             border-radius: 4px;
             outline: none;
@@ -187,11 +187,27 @@
             padding: 20px;
         }
 
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
         .main-image {
             width: 100%;
-            border-radius: 8px;
-            display: block;
-            transition: transform 0.5s ease;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .main-image.active {
+            opacity: 1;
         }
 
         .thumbnail-container {
@@ -208,6 +224,7 @@
             cursor: pointer;
             border: 2px solid transparent;
             transition: all 0.3s;
+            object-fit: cover;
         }
 
         .thumbnail:hover, .thumbnail.active {
@@ -612,12 +629,33 @@
                 color: var(--dark);
                 cursor: pointer;
             }
+
+            .main-image-container {
+                height: 300px;
+            }
         }
 
         @media (min-width: 769px) {
             .mobile-menu-btn {
                 display: none;
             }
+        }
+
+        /* 新增的颜色名称标签 */
+        .color-name {
+            font-size: 12px;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .color-option-container {
+            position: relative;
+            text-align: center;
         }
     </style>
 </head>
@@ -686,18 +724,24 @@
     <section class="product-hero">
         <div class="container product-container">
             <div class="product-gallery">
-                <img id="mainImage" src="https://m.media-amazon.com/images/I/61CnuFH4SlL._AC_SY695_.jpg" class="main-image">
-                <!--  <div class="thumbnail-container">
-                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thumbnail 1" class="thumbnail active" onclick="changeImage(this)">
-                    <img src="https://images.unsplash.com/photo-1605812860427-4024433a70fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
-                    <img src="https://images.unsplash.com/photo-1599474206660-8f2fadce1ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
-                    <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
-                </div>-->
+                <div class="main-image-container">
+                    <img id="mainImage1" src="https://m.media-amazon.com/images/I/61UpH-6M6DL._AC_SY695_.jpg" class="main-image active" alt="黑色雨鞋">
+                    <img id="mainImage2" src="https://m.media-amazon.com/images/I/61q3HN9O6SL._AC_SY695_.jpg" class="main-image" alt="红色雨鞋">
+                    <img id="mainImage3" src="https://m.media-amazon.com/images/I/71DpAGL5AJL._AC_SY695_.jpg" class="main-image" alt="绿色雨鞋">
+                    <img id="mainImage4" src="https://m.media-amazon.com/images/I/61oz80pA8mL._AC_SY695_.jpg" class="main-image" alt="黄色雨鞋">
+                </div>
+
+                <div class="thumbnail-container">
+                    <img src="https://m.media-amazon.com/images/I/31j8Pr-NRmL._SS64_.jpg" class="thumbnail active" onclick="changeImage(1)" alt="黑色雨鞋缩略图">
+                    <img src="https://m.media-amazon.com/images/I/31m2SF5khHL._SS64_.jpg" class="thumbnail" onclick="changeImage(2)" alt="红色雨鞋缩略图">
+                    <img src="https://m.media-amazon.com/images/I/31cicTXSYTL._SS64_.jpg" class="thumbnail" onclick="changeImage(3)" alt="绿色雨鞋缩略图">
+                    <img src="https://m.media-amazon.com/images/I/41DCT-IKVkL._SS64_.jpg" class="thumbnail" onclick="changeImage(4)" alt="黄色雨鞋缩略图">
+                </div>
             </div>
 
             <div class="product-info">
                 <span class="brand-tag">Asgrd 专业雨鞋</span>
-                <h1 class="product-title">防水雨鞋</h1>
+                <h1 class="product-title">Asgrd雨鞋</h1>
                 <p class="product-subtitle">全天候防水保护 · 舒适耐穿</p>
 
                 <div class="product-price">
@@ -709,10 +753,22 @@
                 <div class="product-options">
                     <span class="option-title">选择颜色:</span>
                     <div class="color-options">
-                        <div class="color-option active" style="background-color: #2c3e50;" onclick="selectColor(this)"></div>
-                        <div class="color-option" style="background-color: #c0392b;" onclick="selectColor(this)"></div>
-                        <div class="color-option" style="background-color: #27ae60;" onclick="selectColor(this)"></div>
-                        <div class="color-option" style="background-color: #f1c40f;" onclick="selectColor(this)"></div>
+                        <div class="color-option-container">
+                            <div class="color-option active" style="background-color: #2c3e50;" onclick="selectColor(this, '黑色', 1)"></div>
+                            <span class="color-name">黑色</span>
+                        </div>
+                        <div class="color-option-container">
+                            <div class="color-option" style="background-color: #c0392b;" onclick="selectColor(this, '红色', 2)"></div>
+                            <span class="color-name">红色</span>
+                        </div>
+                        <div class="color-option-container">
+                            <div class="color-option" style="background-color: #27ae60;" onclick="selectColor(this, '绿色', 3)"></div>
+                            <span class="color-name">绿色</span>
+                        </div>
+                        <div class="color-option-container">
+                            <div class="color-option" style="background-color: #f1c40f;" onclick="selectColor(this, '黄色', 4)"></div>
+                            <span class="color-name">黄色</span>
+                        </div>
                     </div>
 
                     <span class="option-title">选择尺码:</span>
@@ -793,7 +849,7 @@
             <h2 class="section-title">热销产品推荐</h2>
             <div class="products-grid">
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard女士雨靴" class="product-image">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asgard女士雨靴" class="product-image">
                     <div class="product-card-content">
                         <h3 class="product-card-title">Asgard女士时尚雨靴</h3>
                         <div class="product-card-price">$79.99</div>
@@ -829,7 +885,7 @@
                 </div>
             </div>
         </div>
-    </section>-->
+    </section> -->
 
     <!-- 页脚 -->
     <footer>
@@ -837,7 +893,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>关于ASGARD</h3>
-                    <p class="about-text">ASGARD源自北欧，致力于为全球消费者提供高品质防水雨具。我们的产品结合北欧设计美学与先进防水技术，让您在任何天气都能保持干爽舒适。</p>
+                    <p class="about-text">ASGARD致力于为全球消费者提供高品质防水雨具。我们的产品结合北欧设计美学与先进防水技术，让您在任何天气都能保持干爽舒适。</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -881,7 +937,7 @@
             </div>
 
             <div class="copyright">
-                <p>© 2023 ASGARD International. 保留所有权利。 | 隐私政策 | 使用条款 | 网站地图</p>
+                <p>© 2025 ASGARD International. 保留所有权利。 | 隐私政策 | 使用条款 | 网站地图</p>
                 <p style="margin-top: 10px;">全球配送: 支持200+国家和地区 | 客服邮箱: support@asgard-rainwear.com</p>
             </div>
         </div>
@@ -889,22 +945,36 @@
 
     <script>
         // 产品图片切换功能
-        function changeImage(element) {
-            const mainImage = document.getElementById('mainImage');
+        function changeImage(imageIndex) {
+            const mainImages = document.querySelectorAll('.main-image');
             const thumbnails = document.querySelectorAll('.thumbnail');
 
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
-            element.classList.add('active');
+            // 隐藏所有主图
+            mainImages.forEach(img => img.classList.remove('active'));
+            // 显示选中的主图
+            document.getElementById(`mainImage${imageIndex}`).classList.add('active');
 
-            mainImage.src = element.src;
-            mainImage.alt = element.alt;
+            // 更新缩略图选中状态
+            thumbnails.forEach((thumb, index) => {
+                if (index === imageIndex - 1) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
         }
 
         // 颜色选择功能
-        function selectColor(element) {
+        function selectColor(element, colorName, imageIndex) {
             const colors = document.querySelectorAll('.color-option');
             colors.forEach(color => color.classList.remove('active'));
             element.classList.add('active');
+
+            // 切换到对应的图片
+            changeImage(imageIndex);
+
+            // 更新产品标题显示颜色名称
+            document.querySelector('.product-title').textContent = `防水雨鞋 - ${colorName}`;
         }
 
         // 尺码选择功能
